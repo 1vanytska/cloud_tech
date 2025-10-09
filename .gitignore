@@ -42,3 +42,29 @@ override.tf.json
 terraform.rc
 
 # End of https://www.toptal.com/developers/gitignore/api/terraform,azurefunctions
+
+**/.terraform/
+**/.terraform/*
+
+**/*.tfstate
+**/*.tfstate.*
+
+**/*.tfvars
+**/*.tfvars.json
+
+**/crash.log
+**/crash.*.log
+
+**/.terraform.lock.hcl
+
+**/override.tf
+**/override.tf.json
+**/*_override.tf
+**/*_override.tf.json
+
+**/*.tfplan
+
+.terraformrc
+terraform.rc
+
+**/local.settings.json
