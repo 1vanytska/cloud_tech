@@ -1,0 +1,10 @@
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentParameters.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "disk_name": { "value": "az104-disk2" },
+    "location": { "value": "eastus" },
+    "disk_size_gb": { "value": 32 },
+    "sku": { "value": "Standard_LRS" }
+  }
+}

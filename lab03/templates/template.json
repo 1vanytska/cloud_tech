@@ -1,0 +1,41 @@
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "disk_name": {
+      "type": "string",
+      "metadata": { "description": "Name of the managed disk" }
+    },
+    "location": {
+      "type": "string",
+      "defaultValue": "eastus"
+    },
+    "disk_size_gb": {
+      "type": "int",
+      "defaultValue": 32
+    },
+    "sku": {
+      "type": "string",
+      "defaultValue": "Standard_LRS"
+    }
+  },
+  "resources": [
+    {
+      "type": "Microsoft.Compute/disks",
+      "apiVersion": "2021-04-01",
+      "name": "[parameters('disk_name')]",
+      "location": "[parameters('location')]",
+      "properties": {
+        "creationData": { "createOption": "Empty" },
+        "diskSizeGB": "[parameters('disk_size_gb')]"
+      },
+      "sku": { "name": "[parameters('sku')]" }
+    }
+  ],
+  "outputs": {
+    "diskId": {
+      "type": "string",
+      "value": "[resourceId('Microsoft.Compute/disks', parameters('disk_name'))]"
+    }
+  }
+}

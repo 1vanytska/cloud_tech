@@ -63,6 +63,7 @@ terraform.rc
 **/*_override.tf.json
 
 **/*.tfplan
+**/tfplan
 
 .terraformrc
 terraform.rc

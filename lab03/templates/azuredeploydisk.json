@@ -1,0 +1,52 @@
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "metadata": {
+    "_generator": {
+      "name": "bicep",
+      "version": "0.38.33.27573",
+      "templateHash": "17951187031820161051"
+    }
+  },
+  "parameters": {
+    "managedDiskName": {
+      "type": "string",
+      "defaultValue": "az104-disk5"
+    },
+    "location": {
+      "type": "string",
+      "defaultValue": "eastus"
+    },
+    "diskSizeInGiB": {
+      "type": "int",
+      "defaultValue": 32
+    },
+    "skuName": {
+      "type": "string",
+      "defaultValue": "StandardSSD_LRS"
+    }
+  },
+  "resources": [
+    {
+      "type": "Microsoft.Compute/disks",
+      "apiVersion": "2021-04-01",
+      "name": "[parameters('managedDiskName')]",
+      "location": "[parameters('location')]",
+      "sku": {
+        "name": "[parameters('skuName')]"
+      },
+      "properties": {
+        "creationData": {
+          "createOption": "Empty"
+        },
+        "diskSizeGB": "[parameters('diskSizeInGiB')]"
+      }
+    }
+  ],
+  "outputs": {
+    "diskId": {
+      "type": "string",
+      "value": "[resourceId('Microsoft.Compute/disks', parameters('managedDiskName'))]"
+    }
+  }
+}
